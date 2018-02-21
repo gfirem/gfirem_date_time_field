@@ -18,7 +18,10 @@ class GFireMDateTimeManager {
 			if ( class_exists( 'FrmAppHelper' ) && method_exists( 'FrmAppHelper', 'pro_is_installed' )
 			     && FrmAppHelper::pro_is_installed() ) {
 				if ( GFireMDateTime::getFreemius()->is_paying() ) {
-					//Implements here
+                    require_once 'class-gfirem-fieldbase.php';
+                    require_once 'class-gfirem-date-time-field.php';
+                    new  GFiremDateTimeField();
+
 				}
 			} else {
 				add_action( 'admin_notices', array( $this, 'required_formidable_pro' ) );

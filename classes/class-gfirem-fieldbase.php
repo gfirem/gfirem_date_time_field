@@ -102,7 +102,7 @@ if ( ! class_exists( 'GFireMFieldBase' ) ) {
 			if ( $field['type'] != $this->getSlug() ) {
 				return;
 			}
-			$description = ( ! empty( $this->description ) ) ? $this->description : __( 'Default placeholder to show into the admin.', 'gfirem_autocomplete-locale' );
+			$description = ( ! empty( $this->description ) ) ? $this->description : __( 'Default placeholder to show into the admin.', 'gfirem_date-time-locale' );
 			$this->placeholder_admin_field( $field, $description );
 		}
 

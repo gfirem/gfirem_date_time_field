@@ -94,9 +94,10 @@ if ( ! class_exists( 'GFireMDateTime' ) ) {
 		}
 	}
 
-	add_action( 'plugins_loaded', function () {
+    add_action('plugins_loaded', array('GFireMDateTime', 'get_instance'), 9999);
+	/*add_action( 'plugins_loaded', function () {
 		global $gfirem;
 		$gfirem[ GFireMDateTime::$slug ]['instance'] = GFireMDateTime::get_instance();
-	} );
+	} );*/
 
 }
