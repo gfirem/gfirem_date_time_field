@@ -18,6 +18,7 @@ class GFiremDateTimeField extends GFireMFieldBase
             array(
                 'inputFormat'               => 'Y/m/d H:i',
                 'datetimepicker_timepicker' => 'true',
+                'datetimepicker_datepicker' => 'true',
                 'datetimepicker_inline'     => 'false',
                 'datetimepicker_lang'       => 'en'
             ),

@@ -29,6 +29,18 @@
 </tr>
 
 <tr>
+    <td><label for="datetimepicker_datepicker<?php echo esc_attr( $field['id'] ) ?>"><?php _e( "Enable Date Picker" ,"gfirem_date_time-locale") ?></label></td>
+    <td>
+        <label for="datetimepicker_datepicker<?php echo esc_attr( $field['id'] ) ?>" class="howto"><?php echo esc_attr( _e( "Enable Date Picker, by default is 'True'. ","gfirem_date_time-locale" ) ) ?></label>
+
+        <select name="field_options[datetimepicker_datepicker_<?php echo esc_attr( $field['id'] ) ?>]" id="datetimepicker_datepicker_<?php echo esc_attr( $field['id'] ) ?>">
+            <option <?php selected( esc_attr( $field['datetimepicker_datepicker'] ), 'true' ) ?> value="true"><?php _e( "True","gfirem_date_time-locale" ) ?></option>
+            <option <?php selected( esc_attr( $field['datetimepicker_datepicker'] ), 'false' ) ?> value="false"><?php _e( "False","gfirem_date_time-locale" ) ?></option>
+        </select>
+    </td>
+
+</tr>
+<tr>
     <td><label for="datetimepicker_timepicker_<?php echo esc_attr( $field['id'] ) ?>"><?php _e( "Enable Time Picker" ,"gfirem_date_time-locale") ?></label></td>
     <td>
         <label for="datetimepicker_timepicker_<?php echo esc_attr( $field['id'] ) ?>" class="howto"><?php echo esc_attr( _e( "Enable Time Picker, by default is 'True'. ","gfirem_date_time-locale" ) ) ?></label>
