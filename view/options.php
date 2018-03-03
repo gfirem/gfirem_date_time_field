@@ -65,3 +65,18 @@
         </select>
     </td>
 </tr>
+
+
+<tr>
+    <td><label for="datetimepicker_interval_<?php echo esc_attr( $field['id'] ) ?>"><?php _e( "Minutes Interval","gfirem_date_time-locale" ) ?></label></td>
+    <td>
+        <label for="datetimepicker_interval_<?php echo esc_attr( $field['id'] ) ?>" class="howto"><?php echo esc_attr( _e( "Minutes Interval for Time Picker, by default is '30'. " ,"gfirem_date_time-locale") ) ?></label>
+
+        <select name="field_options[datetimepicker_interval_<?php echo esc_attr( $field['id'] ) ?>]" id="datetimepicker_interval_<?php echo esc_attr( $field['id'] ) ?>">
+            <option <?php selected( esc_attr( $field['datetimepicker_interval'] ), '30' ) ?> value="30">30</option>
+            <option <?php selected( esc_attr( $field['datetimepicker_interval'] ), '10' ) ?> value="10">10</option>
+            <option <?php selected( esc_attr( $field['datetimepicker_interval'] ), '5' ) ?> value="5">5</option>
+            <option <?php selected( esc_attr( $field['datetimepicker_interval'] ), '1' ) ?> value="1">1</option>
+        </select>
+    </td>
+</tr>

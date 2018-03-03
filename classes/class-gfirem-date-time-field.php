@@ -20,7 +20,8 @@ class GFiremDateTimeField extends GFireMFieldBase
                 'datetimepicker_timepicker' => 'true',
                 'datetimepicker_datepicker' => 'true',
                 'datetimepicker_inline'     => 'false',
-                'datetimepicker_lang'       => 'en'
+                'datetimepicker_lang'       => 'en',
+                'datetimepicker_interval'   => '30'
             ),
             __( 'Show the Date and Time with a DateTimePicker.','gfirem_date_time-locale' ),
             array()
