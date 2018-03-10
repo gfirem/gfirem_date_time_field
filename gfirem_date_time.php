@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * @since             1.0.0
@@ -19,25 +18,25 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 if ( ! class_exists( 'GFireMDateTime' ) ) {
-
+	
 	require_once dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'class-gfirem-date-time-freemius.php';
 	GFireMDateTimeFreemius::get_instance();
-
+	
 	class GFireMDateTime {
-
+		
 		/**
 		 * Instance of this class.
 		 *
 		 * @var object
 		 */
 		protected static $instance = null;
-
+		
 		public static $assets;
 		public static $view;
 		public static $classes;
 		public static $slug = 'gfirem-date-time';
 		public static $version = '1.0.0';
-
+		
 		/**
 		 * Initialize the plugin.
 		 */
@@ -49,11 +48,11 @@ if ( ! class_exists( 'GFireMDateTime' ) ) {
 			require_once self::$classes . 'class-gfirem-date-time-manager.php';
 			new GFireMDateTimeManager();
 		}
-
-		static function getFreemius(){
+		
+		static function getFreemius() {
 			return GFireMDateTimeFreemius::getFreemius();
 		}
-
+		
 		/**
 		 * Get plugin version
 		 *
@@ -62,7 +61,7 @@ if ( ! class_exists( 'GFireMDateTime' ) ) {
 		static function getVersion() {
 			return self::$version;
 		}
-
+		
 		/**
 		 * Get plugins slug
 		 *
@@ -71,7 +70,7 @@ if ( ! class_exists( 'GFireMDateTime' ) ) {
 		static function getSlug() {
 			return self::$slug;
 		}
-
+		
 		/**
 		 * Return an instance of this class.
 		 *
@@ -82,10 +81,10 @@ if ( ! class_exists( 'GFireMDateTime' ) ) {
 			if ( null == self::$instance ) {
 				self::$instance = new self;
 			}
-
+			
 			return self::$instance;
 		}
-
+		
 		/**
 		 * Load the plugin text domain for translation.
 		 */
@@ -93,11 +92,10 @@ if ( ! class_exists( 'GFireMDateTime' ) ) {
 			load_plugin_textdomain( 'gfirem_date_time-locale', false, basename( dirname( __FILE__ ) ) . '/languages' );
 		}
 	}
-
-    add_action('plugins_loaded', array('GFireMDateTime', 'get_instance'), 9999);
-	/*add_action( 'plugins_loaded', function () {
+	
+	add_action( 'plugins_loaded', 'gfirem_date_time_picker_loader' );
+	function gfirem_date_time_picker_loader() {
 		global $gfirem;
 		$gfirem[ GFireMDateTime::$slug ]['instance'] = GFireMDateTime::get_instance();
-	} );*/
-
+	}
 }

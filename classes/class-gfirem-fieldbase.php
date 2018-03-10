@@ -37,7 +37,11 @@ if ( ! class_exists( 'GFireMFieldBase' ) ) {
 				$this->defaults       = $defaults;
 				$this->global_options = $global_options;
 				$this->plan           = $plan;
-
+				
+				if ( ! empty( $global_options['icon'] ) ) {
+					$this->global_options['icon'] = $global_options['icon'];
+				}
+				
 				add_action( 'frm_pro_available_fields', array( $this, 'add_formidable_field' ) );
 				add_action( 'frm_before_field_created', array( $this, 'set_formidable_field_options' ) );
 				add_action( 'frm_display_added_fields', array( $this, 'show_formidable_field_admin_field' ) );
@@ -61,8 +65,12 @@ if ( ! class_exists( 'GFireMFieldBase' ) ) {
 		 * @return mixed
 		 */
 		public function add_formidable_field( $fields ) {
-			$fields[ $this->slug ] =  esc_html( $this->name );
-
+			if ( ! empty( $this->global_options['icon'] ) ) {
+				$fields[ $this->slug ] = array( 'name' => $this->name, 'icon' => $this->global_options['icon'] );
+			} else {
+				$fields[ $this->slug ] = esc_html( $this->name );
+			}
+			
 			return $fields;
 		}
 
