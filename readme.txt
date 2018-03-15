@@ -2,7 +2,7 @@
 Contributors: gfirem
 Tags: formidable, formidable date time field, date time field, date time picker
 Requires at least: 4.6.2
-Tested up to: 4.7.2
+Tested up to: 4.9.4
 Stable tag: 1.0.0
 License: Apache License 2.0
 License URI: http://www.apache.org/licenses/

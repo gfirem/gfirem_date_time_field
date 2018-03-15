@@ -18,9 +18,10 @@ class GFireMDateTimeManager {
 			if ( class_exists( 'FrmAppHelper' ) && method_exists( 'FrmAppHelper', 'pro_is_installed' )
 			     && FrmAppHelper::pro_is_installed() ) {
 				if ( GFireMDateTime::getFreemius()->is_paying() ) {
+					add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_style' ) );
                     require_once 'class-gfirem-fieldbase.php';
                     require_once 'class-gfirem-date-time-field.php';
-                    new  GFiremDateTimeField();
+                    new  GFireMDateTimeField();
 
 				}
 			} else {
@@ -28,28 +29,25 @@ class GFireMDateTimeManager {
 			}
 		} catch ( Exception $ex ) {
 			GFireMDateTimeLogs::log( array(
-				'action'         => get_class( $this ),
+				'action'         => 'loading_dependency',
 				'object_type'    => GFireMDateTime::getSlug(),
-				'object_subtype' => 'loading_dependency',
+				'object_subtype' => get_class( $this ),
 				'object_name'    => $ex->getMessage(),
 			) );
+		}
+	}
+	
+	public function admin_enqueue_style() {
+		$current_screen = get_current_screen();
+		if ( 'toplevel_page_formidable' === $current_screen->id ) {
+			wp_enqueue_style( 'formidable_key_field', GFireMDateTime::$assets . 'css/gfirem_date_time.css' );
 		}
 	}
 
 	public function required_formidable_pro() {
 		require GFireMDateTime::$view . 'formidable_notice.php';
 	}
-
-	public static function load_plugins_dependency() {
-		include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-	}
-
-	public static function is_formidable_active() {
-		self::load_plugins_dependency();
-
-		return is_plugin_active( 'formidable/formidable.php' );
-	}
-
+	
 	/**
 	 * Handle freemius menus visibility
 	 *

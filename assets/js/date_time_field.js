@@ -7,7 +7,6 @@
  * @license http://www.apache.org/licenses/
  *
  */
-/* <fs_premium_only> */
 var wrappers = document.getElementsByClassName("date_time_field_container");
 [].forEach.call(wrappers, process_fields);
 function pad(number,size) {
@@ -21,15 +20,10 @@ function process_fields(item, index) {
 	var intervall = parseInt(date_time_field.config[id].datetimepicker_interval);
 	var allowTimesInterval =[];
 	for(var horas =0;horas<24;horas++){
-
 		for(var minutos = 0; minutos<60;minutos+=intervall){
-
 			var element =pad(horas)+":"+pad(minutos);
             allowTimesInterval.push(element);
-
 		}
-
-
 	}
 	var datetimefield = jQuery("#"+id).datetimepicker({
 		format: date_time_field.config[id].inputFormat,
@@ -46,4 +40,3 @@ function process_fields(item, index) {
 
 
 }
-/* </fs_premium_only> */
