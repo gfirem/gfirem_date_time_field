@@ -63,6 +63,7 @@ class GFireMDateTimeField extends GFireMFieldBase {
 	private function load_script( $print_value = "", $field_id = "" ) {
 		$base_url = GFireMDateTime::$assets;
 		wp_enqueue_style( 'jquery.datetimepicker', $base_url . 'css/jquery.datetimepicker.min.css', array(), $this->version );
+        wp_enqueue_script( 'DateFormatter', $base_url . 'js/php-date-formatter.js', array( "jquery" ), $this->version, true );
 		wp_enqueue_script( 'jquery.datetimepicker', $base_url . 'js/jquery.datetimepicker.full.min.js', array( 'jquery' ), $this->version, true );
 		wp_enqueue_script( 'date_time_field', $base_url . 'js/date_time_field.js', array( 'jquery' ), $this->version, true );
 		$params = array(
