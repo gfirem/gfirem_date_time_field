@@ -31,17 +31,19 @@ function process_fields(item, index) {
 
 
 	}
-
 	var datetimefield = jQuery("#"+id).datetimepicker({
 		format: date_time_field.config[id].inputFormat,
-		inline: date_time_field.config[id].datetimepicker_inline == "true" ? true : false,
+        inline: date_time_field.config[id].datetimepicker_inline == "true" ? true : false,
 		timepicker: date_time_field.config[id].datetimepicker_timepicker == "true" ? true : false,
         datepicker: date_time_field.config[id].datetimepicker_datepicker == "true" ? true : false,
-		defaultDate: date_time_field.now_date,
-		defaultTime: date_time_field.now_time,
-        allowTimes: allowTimesInterval
+		allowTimes: allowTimesInterval
 
 	});
     jQuery.datetimepicker.setLocale(date_time_field.config[id].datetimepicker_lang);
+
+
+
+
+
 }
 /* </fs_premium_only> */
